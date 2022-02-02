@@ -9,7 +9,7 @@ from transformers import TFAutoModel, AutoTokenizer
 import tensorflow as tf
 from sklearn.utils import shuffle
 
-from loss import distill_loss_T
+from loss import distill_loss
 
 ##
 ## for training cv
@@ -140,7 +140,7 @@ def train_distilled_model(X_train, y_train, tokenizer,
     logging.info('Model loaded')
 
     optimizer = tf.keras.optimizers.Adam(learning_rate=lr)
-    model.compile(optimizer=optimizer, loss=distill_loss_T(alpha=alpha, T=T))
+    model.compile(optimizer=optimizer, loss=distill_loss(alpha=alpha, T=T))
 
     model.fit(batches, epochs=epochs, steps_per_epoch=steps_per_epoch)
 
