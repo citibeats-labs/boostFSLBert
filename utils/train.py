@@ -178,7 +178,6 @@ def get_model(max_length, transformer_model, num_labels, rate, name_model=False)
     weight_initializer = tf.keras.initializers.GlorotNormal(seed=42)
 
     for unit_size in [256]:
-        name_layer = 
         output_layer = tf.keras.layers.Dense(unit_size, 
                                              activation='relu',
                                              kernel_initializer=weight_initializer,  
