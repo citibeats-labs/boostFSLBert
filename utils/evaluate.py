@@ -1,14 +1,3 @@
-import pandas as pd
-from os.path import join
-import ast
-from collections import Counter
-
-import logging
-
-logging.basicConfig(level=logging.INFO)
-
-
-
 def evaluate(y_true, y_preds):
 	"""
 	Objective: get the evaluations metrics from the predictions
@@ -45,44 +34,3 @@ def evaluate(y_true, y_preds):
 	metrics['f1'] = 2 * r * p / (r + p) if (r + p) > 0 else 0
 	
 	return metrics
-
-
-def seq_ngrams(xs, n, stop_words):
-    """
-    Objective: list all the n-grams of a sequence
-    Inputs:
-        - xs, list: list of the tokens
-        - n, int: the level of grams we want
-        - stop_words, list: the list of stop words we don't want to have alone in the tokens
-    Outputs:
-        - ngrams, list: list of n-grams 
-    """
-
-    ngrams = [' '.join(xs[i:i+n]).replace(' ##', '') for i in range(len(xs)-n+1) 
-              if len(xs[i:i+n]) > 1 or xs[i:i+n][0] not in stop_words]
-
-    return ngrams
-
-
-def get_counts_ngrams(texts, tokenizer, n=6, stop_words=None):
-	"""
-	Objective: get the count of ngrams in the texts from any tokenizer (here HF's one)
-	Inputs:
-		- texts, np.array: the texts we want to extract ngrams from
-		- tokenizer, transformers.tokenization_distilbert.DistilBertTokenizer: the tokenizer of the model
-		- n, int: the maximum length for ngrams
-		- stop_words, list: the stop words to avoid alone
-	Outputs:
-		- ngrams_counts, dict(Counter.object): the counts of ngrams for the texts depending the tokenizer
-	"""
-	tokens = [tokenizer.tokenize(x) for x in texts]
-
-	ngrams = []
-
-	for _tokens in tokens:
-	    for i in range(1, n):
-	        ngrams += seq_ngrams(_tokens, i, stop_words)
-
-	ngrams_counts = Counter(ngrams)
-
-	return dict(ngrams_counts)

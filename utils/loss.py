@@ -1,7 +1,5 @@
 import tensorflow as tf
 import numpy as np
-from sklearn.metrics import recall_score
-
 
 def distill_loss_T(y_true, y_pred, alpha=0.5, T=1):
     """

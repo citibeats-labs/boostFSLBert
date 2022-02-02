@@ -38,13 +38,12 @@ def get_X_y(PATH_DATA, name_data, categories):
     return X, y
 
 
-def load_transformer_models(bert, special_tokens):
+def load_transformer_models(bert):
     """
     Objective: load the tokenizer we'll use and also the transfomer model
     
     Inputs:
         - bert, str: the name of models look at https://huggingface.co/models for all models
-        - special_tokens, list: list of str, where they are tokens to be considered as one token
     Outputs:
         - tokenizer, transformers.tokenization_distilbert.DistilBertTokenizer: the tokenizer of the model
         - transformer_model, transformers.modeling_tf_distilbert.TFDistilBertModel: the transformer model that
@@ -52,8 +51,6 @@ def load_transformer_models(bert, special_tokens):
                                                                                     (embedding model)
     """
     tokenizer = AutoTokenizer.from_pretrained(bert)
-
-    tokenizer.add_special_tokens({'additional_special_tokens': special_tokens})
 
     transformer_model = TFAutoModel.from_pretrained(bert)
 
