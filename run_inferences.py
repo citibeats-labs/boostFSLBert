@@ -35,7 +35,7 @@ if __name__ == '__main__':
 	df = pd.read_csv(join(args.PATH_DATA, f'{args.name_data}.csv'), engine='python', sep=';')
 	df = pre_process(df, text_var=args.text_var, english=args.english)
 	
-	tokenizer, transformer_model = load_transformer_models(args.bert, [])
+	tokenizer, transformer_model = load_transformer_models(args.bert)
 	
 	model = get_model(args.max_length, transformer_model, num_labels=1, rate=args.do, 
 										name_model=join(args.PATH_MODELS, f'{args.name_model}.h5'))

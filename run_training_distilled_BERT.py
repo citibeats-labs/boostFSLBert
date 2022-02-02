@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
 	X, y = get_X_y(args.PATH_DATA, args.name, 'prob_hatred')
 
-	tokenizer, transformer_model = load_transformer_models(args.bert, [])
+	tokenizer, transformer_model = load_transformer_models(args.bert)
 
 	model = train_distilled_model(X, y, tokenizer, 
 				       transformer_model, categories, args.do, args.lr, args.epochs,
