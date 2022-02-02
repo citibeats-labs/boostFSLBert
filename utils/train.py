@@ -183,10 +183,10 @@ def get_model(max_length, transformer_model, num_labels, rate, name_model=False)
                                              kernel_initializer=weight_initializer,  
                                              kernel_constraint=None,
                                              bias_initializer='zeros',
-                                             name=n'dense_mid'
+                                             name='dense_mid'
                                             )(output_layer)
 
-        output_layer = tf.keras.layers.Dropout(rate, name=d'do_mid')(output_layer)
+        output_layer = tf.keras.layers.Dropout(rate, name='do_mid')(output_layer)
     
     output = tf.keras.layers.Dense(num_labels, activation='sigmoid', name='last_layer')(output_layer)
 
