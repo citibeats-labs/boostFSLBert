@@ -1,0 +1,5 @@
+pandas
+tensorflow
+transformers
+numpy
+scikit-learn
