@@ -2,9 +2,11 @@
 
 ## Executive summary
 
-In [our blog post]() we have explored a way to boost BERT performances when we deal with a small dataset for a classification problem. We used a [hatred speech dataset](https://www.kaggle.com/rahulgoel1106/hatred-on-twitter-during-metoo-movement) example that is present on [Kaggle](www.kaggle.com).
+In [our blog post]() we have explored a way to boost BERT performances when we deal with a small dataset for a classification problem. We used a sample of [hatred speech dataset](https://www.kaggle.com/rahulgoel1106/hatred-on-twitter-during-metoo-movement) which we collected on [Kaggle](www.kaggle.com).
 
-You can take a look at how we constructed the dataset and get final results in the [notebooks folder](notebooks/). We also provide the colab to do the experiment on your own. 
+You can take a look at how we built the datasets (train and test) and get final results in the [notebooks folder](notebooks/). We also provide [the colab](https://colab.research.google.com/drive/1hL3wLs8UzvavykmWgwKgF6JAgN9h7t4w#scrollTo=x3XysgOrq88T) to do the experiment on your own. 
+
+The datasets are also in the `data/` folder. 
 
 ## Results of the different experiments
 
